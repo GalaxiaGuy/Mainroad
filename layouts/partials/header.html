@@ -1,6 +1,13 @@
 <header class="header">
 	<div class="container header__container">
-		{{ partial "logo.html" . }}
+		<div  style="display: flex; justify-content: space-between; flex-wrap: wrap">
+			<div>
+				{{ partial "logo.html" . }}
+			</div>
+			<div class="search_wrapper">
+				{{ partial "search.html" . }}
+			</div>
+			</div>
 		{{ partial "menu.html" . }}
 	</div>
 </header>

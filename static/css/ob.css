@@ -1,0 +1,82 @@
+.post__content img {
+    max-height: 600px;
+    float: left;
+    margin: 8px;
+}
+
+.post__warning a, .post__warning a:hover {
+    color: white;
+}
+
+.infobox__content + .post__warning {
+    text-align: right;
+}
+
+.pager {
+    flex-wrap: wrap;
+}
+
+.pager__related {
+    margin-top: 16px;
+    max-width: 99%;
+    flex: 1 1 100%;
+}
+
+.pager__related li {
+    list-style: none;
+}
+
+.review {
+    float: right;
+    margin-left: 16px;
+}
+
+.review a.btn {
+    display: inline-block;
+    margin: 0 4px 8px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: #FFE082;
+    color: black;
+    width: 100%;
+    text-align: center;
+}
+
+.rating {
+    font-size: 30px;
+    color: #FFC107;
+}
+
+blockquote {
+    font-style: italic;
+}
+
+.search main > *, .search .pagination, .search .comments {
+    display: none;
+}
+
+.search__header {
+    margin-bottom: 1.25rem;
+}
+
+.search main > .search__result, .search .search__header, .search .search__empty  {
+    display: block;
+}
+
+.search_wrapper {
+    padding: 25px;
+}
+.search_wrapper input {
+    width: 400px;
+}
+
+@media screen and (max-width: 900px)
+{
+    .search_wrapper {
+        padding: 0px 20px 20px 20px;
+        width: 100%;
+    }
+    .search_wrapper input {
+        width: 100%;
+    }
+}

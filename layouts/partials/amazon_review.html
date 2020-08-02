@@ -1,0 +1,11 @@
+{{ if isset .Params "review_name" }}
+    <aside class="review">
+        <a target="_blank"  href="https://www.amazon.co.uk/dp/{{ .Params.amazon_asin }}/ref=nosim?tag=oliverbrown-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .Params.amazon_asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=oliverbrown-20&l=am2&o=1&a=B004INHDBO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+        <p class="rating">
+                {{ $hollow := sub 5 .Params.review_rating}}
+                {{ range seq .Params.review_rating }}★{{ end }}<span class="empty">{{ range seq $hollow }}☆{{ end }}</span>
+        </p>
+        <a class="btn" target="_blank" href="https://www.amazon.co.uk/dp/{{ .Params.amazon_asin }}/ref=nosim?tag=oliverbrown-20">Buy it on Amazon</a>        
+    </aside>
+{{ partial "amazon_review_json.html" . }}
+{{ end }}

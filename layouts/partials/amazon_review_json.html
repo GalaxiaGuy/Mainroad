@@ -1,0 +1,48 @@
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "additionalType": "BlogPosting",
+      "mainEntityOfPage": {{ .Permalink }},
+      "url": {{ .Permalink }},
+      "headline": "{{ .Title }}",
+      "datePublished": "{{ .Date.Format "20060102T15:04"}}",
+      "dateModified": "{{ .Date.Format "20060102T15:04"}}",
+      "description": "{{ .Params.review_summary }}",
+      "publisher": {
+        "@type": "Person",
+        "name": "Oliver Brown",
+        "url": "https://www.oliverbrown.me.uk"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Oliver Brown",
+        "url": "https://www.oliverbrown.me.uk"
+      },
+      {{ if isset .Params "image_url" }}
+      "image": {{ .Params.image_url | absURL }},
+      {{ else }}
+      "image": {{ "/logo.png" | absURL }},
+      {{ end }}
+      {{ if isset .Params "video_url" }}
+      "video": {{ .Params.video_url | absURL }},
+      {{ end }}
+      "itemReviewed": {
+          "@type": "Book",
+          "name": "{{ .Params.review_name}}",
+          "url": "https://www.amazon.com/gp/product/B004INHDBO/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN={{ .Params.amazon_asin }}&linkCode=as2&tag=oliverbrown-20&linkId=f3069150c46086bbf314dc60a6622f05",
+          "description": "{{ .Params.review_product_description }}",
+          "isbn": "{{ .Params.review_isbn }}",
+          "author": "{{ .Params.review_author }}",
+          "offers": [{
+              "@type": "Offer",
+              "url": "https://www.amazon.com/gp/product/B004INHDBO/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN={{ .Params.amazon_asin }}&linkCode=as2&tag=oliverbrown-20&linkId=f3069150c46086bbf314dc60a6622f05"
+          }]
+      },
+      "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "{{ .Params.review_rating }}"
+      },
+      "reviewBody": {{ .Plain | safeJS | htmlUnescape | plainify }}
+    }
+</script>
