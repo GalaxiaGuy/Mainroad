@@ -41,7 +41,20 @@
     margin-left: 16px;
 }
 
-.review a.btn {
+.amazon {
+    display: inline-block;
+    width: 160px;
+}
+
+.amazon {
+    margin: auto;
+}
+
+.amazon a img {
+    width: 144px
+}
+
+.review a.btn, .amazon a.btn {
     display: inline-block;
     margin: 0 4px 8px 0;
     font-size: 12px;

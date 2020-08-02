@@ -1,0 +1,5 @@
+{{$asin := .Get "id" | default (.Get 0) -}}
+<div class="amazon">
+    <a target="_blank" href="https://www.amazon.co.uk/dp/{{ $asin }}/ref=nosim?tag=oliverbrown-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ $asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown-20" ></a><img src="//ir-na.amazon-adsystem.com/e/ir?t=oliverbrown-20&l=am2&o=1&a=B004INHDBO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+    <a class="btn" target="_blank" href="https://www.amazon.co.uk/dp/{{ $asin }}/ref=nosim?tag=oliverbrown-20">Buy it on Amazon</a>        
+</div>
