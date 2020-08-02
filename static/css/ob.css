@@ -26,6 +26,16 @@
     list-style: none;
 }
 
+.widget-series ol {
+    padding-left: 16px;
+}
+
+.widget-series ol li {
+    display: list-item;
+    list-style-type: decimal;
+    padding-bottom: 6px;
+}
+
 .review {
     float: right;
     margin-left: 16px;
