@@ -16,6 +16,19 @@
 		</li>
 		{{- end }}
 		{{- end }}
+		<li class="menu__item menu__divider"></li>
+		{{- range .Site.Menus.main_other }}
+		{{- if .Name }}
+		<li class="menu__item menu__other">
+			<a class="menu__link" href="{{ .URL }}">
+				{{ .Pre }}
+				<span class="menu__text">{{ .Name }}</span>
+				{{ .Post }}
+			</a>
+		</li>
+		{{- end }}
+		{{- end }}
+
 	</ul>
 </nav>
 {{ else -}}

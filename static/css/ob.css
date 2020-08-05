@@ -74,6 +74,20 @@ blockquote {
     font-style: italic;
 }
 
+@media screen and (min-width: 767px) {
+    .menu__item.menu__divider {
+        margin-left: auto;
+        border: none;
+    }
+    .menu__item.menu__other {
+        border-left: none;
+        border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+    .menu__item.menu__other:last-child {
+        border: none;
+    }
+}
+
 .search main > *, .search .pagination, .search .comments {
     display: none;
 }
