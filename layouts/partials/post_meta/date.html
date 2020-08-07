@@ -9,5 +9,8 @@
 		{{- T "meta_lastmod" }}: {{ .Lastmod.Format (.Site.Params.dateformat | default "January 02, 2006") -}}
 	)</time>
 	{{- end -}}
+	<span class="future meta__text" data-date="{{.Date }}">
+		— This upcoming video may not be available to view yet.
+	</span>
 </div>
 {{- end }}

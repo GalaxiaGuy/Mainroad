@@ -74,6 +74,15 @@ blockquote {
     font-style: italic;
 }
 
+.future {
+    font-style: italic;
+    display: none;
+}
+
+.future.confirmed {
+    display: inline;
+}
+
 @media screen and (min-width: 767px) {
     .menu__item.menu__divider {
         margin-left: auto;

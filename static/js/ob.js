@@ -84,6 +84,12 @@ async function doSearch(text) {
 }
 
 window.addEventListener('load', () => {
+    document.querySelectorAll(".future").forEach( x => {
+        var date = new Date(x.dataset.date);
+        if (date > Date.now()) {
+            x.classList.add("confirmed");
+        }
+    });
     let searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('search', (event) => {
         doSearch(searchInput.value.trim().toLowerCase());
