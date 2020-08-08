@@ -116,6 +116,16 @@ blockquote {
     width: 400px;
 }
 
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    max-width: 300px;
+}
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {

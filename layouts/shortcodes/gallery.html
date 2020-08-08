@@ -1,0 +1,8 @@
+<div class="gallery">
+{{ range .Params }}
+  {{ $arg := split . ":" }}
+  {{ $src := index $arg 0 }}
+  {{ $alt := index $arg 1 }}
+  <img alt="{{$alt}}" src="{{$src}}" />
+{{ end }}
+</div>
