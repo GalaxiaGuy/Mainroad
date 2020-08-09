@@ -1,0 +1,8 @@
+<div class="gallery">
+  {{ with $.Page.Resources.ByType "image" }}
+    {{ range . }}
+      {{ $thumb := .Resize "300x" }}
+      <a href="{{ .RelPermalink }}"><img src="{{ $thumb.RelPermalink }}" /></a>
+    {{ end }}
+  {{ end }}
+</div>
