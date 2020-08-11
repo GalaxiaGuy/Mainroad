@@ -1,8 +1,17 @@
+{{ .Scratch.Set "images" ($.Page.Resources.ByType "image") }}
+{{ $folder := .Get 0 }}
+{{ if $folder }}
+  {{ $images := .Scratch.Get "images" }}
+  {{ $images := $images.Match $folder}}
+  {{ .Scratch.Set "images" $images }}
+{{ end}}
+{{ $images := .Scratch.Get "images" }}
+
+{{ with $images }}
 <div class="gallery">
-  {{ with $.Page.Resources.ByType "image" }}
-    {{ range . }}
-      {{ $thumb := .Resize "300x" }}
-      <a href="{{ .RelPermalink }}"><img src="{{ $thumb.RelPermalink }}" /></a>
-    {{ end }}
+  {{ range . }}
+    {{ $thumb := .Resize "300x" }}
+    <a href="{{ .RelPermalink }}"><img src="{{ $thumb.RelPermalink }}" /></a>
   {{ end }}
 </div>
+{{ end }}

@@ -1,7 +1,0 @@
-{{$folder := .Get "folder" | default (.Get 0) -}}
-{{$dir := printf "content/%s" $folder -}}
-<div class="gallery">
-  {{ range (readDir $dir) }}
-  <img src="/{{ $folder }}/{{ .Name }}" />
-  {{ end }}
-</div>
