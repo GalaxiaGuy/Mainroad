@@ -99,6 +99,12 @@ window.addEventListener('load', () => {
             doSearch('');
         }
     });
+
+    if (window.location.pathname.startsWith('/search/')) {
+        let parts = window.location.pathname.split('/');
+        let term = unescape(parts[2]);
+        doSearch(term);
+    }
 });
 
 function httpRequest(method, url) {
