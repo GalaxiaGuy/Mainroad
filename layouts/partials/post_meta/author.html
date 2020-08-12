@@ -1,4 +1,15 @@
-{{- if .Site.Author.name -}}
+{{- if .Params.Author.name -}}
+<div class="meta__item-author meta__item">
+	{{ partial "svg/author.svg" (dict "class" "meta__icon") -}}
+	<span class="meta__text">
+		{{- if .Params.Author.url -}}
+		<a href="{{- .Params.Author.url}}">{{- .Params.Author.name -}}</a>
+		{{- else -}}
+		{{- .Params.Author.name -}}
+		{{- end -}}
+	</span>
+</div>
+{{- else if .Site.Author.name -}}
 <div class="meta__item-author meta__item">
 	{{ partial "svg/author.svg" (dict "class" "meta__icon") -}}
 	<span class="meta__text">{{ .Site.Author.name }}</span>
