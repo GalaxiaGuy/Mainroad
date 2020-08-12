@@ -104,7 +104,7 @@ window.addEventListener('load', () => {
         let parts = window.location.pathname.split('/');
         let term = unescape(parts[2]);
         let searchInput = document.getElementById('searchInput');
-        searchInput.textContent = term;
+        searchInput.value = term;
     }
 });
 
