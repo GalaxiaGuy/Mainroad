@@ -109,19 +109,26 @@ window.addEventListener('load', () => {
             doSearchWithHistory('');
         }
     });
-
-    let term = getSearchTerm();
-
-    if (term) {
-        forceSearch(term);
-    }
+    checkInitialSearch();    
 });
 
 window.addEventListener('popstate', (event) => {
     if (event.state && event.state["search"]) {
         forceSearch(event.state["search"]);
+    } else if (!checkInitialSearch()) {
+        forceSearch('');
     }
 });
+
+function checkInitialSearch() {
+    let term = getSearchTerm();
+
+    if (term) {
+        forceSearch(term);
+        return true;
+    }
+    return false;
+}
 
 function getSearchTerm() {
     if (window.location.pathname.startsWith('/search/')) {
