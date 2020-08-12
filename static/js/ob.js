@@ -8,6 +8,16 @@ async function loadElement(observer, element) {
     element.innerHTML = snippet;
 }
 
+async function doSearchWithHistory(text) {
+    history.pushState({"search" : text}, "Searching for: " + text, "/search/" + escape(text));
+    await doSearch(text);
+}
+
+function forceSearch(term) {
+    searchInput.value = term;
+    doSearch(term);
+}
+
 async function doSearch(text) {
     let searchInput = document.getElementById('searchInput');
     if (!window.searchIndex) {
@@ -92,21 +102,39 @@ window.addEventListener('load', () => {
     });
     let searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('search', (event) => {
-        doSearch(searchInput.value.trim().toLowerCase());
+        doSearchWithHistory(searchInput.value.trim().toLowerCase());
     });
     searchInput.addEventListener('change', () => {
         if (searchInput.value == '') {
-            doSearch('');
+            doSearchWithHistory('');
         }
     });
 
+    let term = getSearchTerm();
+
+    if (term) {
+        forceSearch(term);
+    }
+});
+
+window.addEventListener('popstate', (event) => {
+    if (event.state && event.state["search"]) {
+        forceSearch(event.state["search"]);
+    }
+});
+
+function getSearchTerm() {
     if (window.location.pathname.startsWith('/search/')) {
         let parts = window.location.pathname.split('/');
         let term = unescape(parts[2]);
-        let searchInput = document.getElementById('searchInput');
-        searchInput.value = term;
+        return term;
     }
-});
+    let url = new URL(window.location.href);
+    if (url.searchParams.has('q')) {
+        return url.searchParams.get('q');
+    }
+    return null;    
+}
 
 function httpRequest(method, url) {
     return new Promise(function (resolve, reject) {
