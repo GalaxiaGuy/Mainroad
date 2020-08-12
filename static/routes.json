@@ -1,0 +1,14 @@
+{
+  "platformErrorOverrides": [
+    {
+      "errorType": "NotFound",
+      "serve": "/404.html"
+    }
+  ],
+  "routes": [
+    {
+      "route": "/search/*",
+      "serve": "/"
+    }
+  ]
+}
