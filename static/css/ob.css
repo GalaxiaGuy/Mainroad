@@ -1,7 +1,15 @@
-.post__content img {
-    max-height: 600px;
-    float: left;
+.post__content figure img {
+    max-height: 400px;
+    max-width: 300px;
+}
+
+.post__content figure {
+    float: right;
     margin: 8px;
+}
+
+.post__content figcaption h4 {
+    text-align: right;
 }
 
 .post__warning a, .post__warning a:hover {
@@ -120,6 +128,12 @@ blockquote {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    row-gap: 8px;
+    column-gap: 8px;
+}
+
+.post__content .gallery figure {
+    float: none;    
 }
 
 .gallery img {
