@@ -1,14 +1,17 @@
 {{- if .Params.series }}
 {{- range .GetTerms "series" }}
+{{- $pages :=.Pages.ByDate }}
+{{- if gt (len $pages) 1 }}
 <div class="widget-series widget">
 	<h4 class="widget__title">{{- .Title -}}</h4>
 	<div class="widget__content">
 		<ol class="widget__list">
-			{{ range .Pages.ByDate }}
-	            <li><a href="{{ .Permalink}}">{{ .LinkTitle }}</a></li>
+			{{ range $pages }}
+	            <li><a href="{{ .Permalink}}">{{ .Params.seriesTitle | default .LinkTitle }}</a></li>
             {{ end }}
 		</ol>
 	</div>
 </div>
+{{- end }}
 {{- end }}
 {{- end }}
