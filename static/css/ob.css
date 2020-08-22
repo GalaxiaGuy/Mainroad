@@ -59,18 +59,40 @@
 }
 
 .amazon a img {
-    width: 144px
+    width: 144px;
+    margin: 0 8px;
 }
 
 .review a.btn, .amazon a.btn {
     display: inline-block;
-    margin: 0 4px 8px 0;
+    font-size: 12px;
+    margin: 8px;
+    text-transform: uppercase;
+    color: black;
+    width: 144px;
+    text-align: center;
+    background-color: #FFE082;
+}
+
+.amazon_links a.btn {
+    display: block;
+    margin: 2px;
     font-size: 12px;
     text-transform: uppercase;
-    background-color: #FFE082;
     color: black;
-    width: 100%;
+    width: calc(100% - 4px);
     text-align: center;
+    background-color: #FFE082;
+}
+
+.amazon_links h4 {
+    font-size: 14px;
+    margin: 8px;
+    text-align: center;
+}
+
+.amazon_links {
+    border: 2px solid #FFE082;
 }
 
 .rating {
