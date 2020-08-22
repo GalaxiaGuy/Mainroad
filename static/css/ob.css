@@ -47,6 +47,7 @@
 .review {
     float: right;
     margin-left: 16px;
+    width: 161px;
 }
 
 .amazon {
@@ -74,7 +75,7 @@
     background-color: #FFE082;
 }
 
-.amazon_links a.btn {
+.amazon_links a.btn, .audible_links a.btn {
     display: block;
     margin: 2px;
     font-size: 12px;
@@ -85,19 +86,26 @@
     background-color: #FFE082;
 }
 
-.amazon_links h4 {
+.amazon_links h4, .audible_links h4 {
     font-size: 14px;
     margin: 8px;
     text-align: center;
 }
 
-.amazon_links {
-    border: 2px solid #FFE082;
+.audible_links, .amazon_links {
+    margin-bottom: 16px;
+}
+
+.audible_links a.btn {
+    background-color: #FFA000;
 }
 
 .rating {
     font-size: 30px;
-    color: #FFC107;
+    color: #90A4AE;
+    width: 160px;
+    text-align: center;
+    margin-top: 16px;
 }
 
 blockquote {

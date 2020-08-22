@@ -27,6 +27,19 @@
             {{ end }}
         </div>
         {{ end }}
+        {{ with .Params.review.audible_links }}
+        <div class="audible_links">
+            <h4>Buy it on Audible</h4>
+            <a class="btn" target="_blank" href="https://www.amazon.co.uk/Audible-Membership/dp/B00OPA2XFG?actionCode=AMN30DFT1Bk06604291990WX&tag=oliverbrown-21">Free 30-day trial</a>
+            {{ range . }}
+            {{ if isset . "url"}}
+            <a class="btn" target="_blank" href="{{ .url }}">{{ .title }}</a>    
+            {{ else }}    
+            <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown-20">{{ .title }}</a>                    
+            {{ end }}
+            {{ end }}
+        </div>
+        {{ end }}
     </aside>
 {{ partial "amazon_review_json.html" . }}
 {{ end }}
