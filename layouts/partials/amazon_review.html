@@ -23,7 +23,11 @@
         <div class="amazon_links">
             <h4>Buy it on Amazon</h4>
             {{ range . }}
-            <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown-20">{{ .title }}</a>        
+            {{ if isset . "url"}}
+            <a class="btn" target="_blank" href="{{ .url }}">{{ .title }}</a>    
+            {{ else }}    
+            <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown-20">{{ .title }}</a>                    
+            {{ end }}
             {{ end }}
         </div>
         {{ end }}
