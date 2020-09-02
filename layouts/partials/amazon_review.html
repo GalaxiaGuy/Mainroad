@@ -1,4 +1,10 @@
 {{ if isset .Params "review" }}
+
+    <div class="post__warning clearfix" style="margin-bottom: 16px;">
+        As an Amazon Associate I earn from qualifying purchases.
+        <a href="/privacy-policy">See here for more information</a>.
+    </div>
+
     {{ if isset .Params.review "youtube" }}
     {{$id := .Params.review.youtube -}}
     <div class="infobox" >
