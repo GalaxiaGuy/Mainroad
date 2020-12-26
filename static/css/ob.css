@@ -100,6 +100,21 @@
     background-color: #FFA000;
 }
 
+.amazon_links .flag_holder {
+    display: block;
+    margin: 2px;
+    margin-top: -2px;
+    text-align: center;
+    width: calc(100% - 4px);
+    background-color: #FFE082;
+}
+
+.flag img {
+    height: 16px;
+    display: inline;
+    vertical-align: top;
+}
+
 .rating {
     font-size: 30px;
     color: #90A4AE;
