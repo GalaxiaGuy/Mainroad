@@ -57,6 +57,7 @@
 
 .amazon {
     margin: auto;
+    vertical-align: top;
 }
 
 .amazon a img {
@@ -86,7 +87,7 @@
     background-color: #FFE082;
 }
 
-.amazon_links h4, .audible_links h4 {
+.amazon_links h4, .audible_links h4, .amazon h4 {
     font-size: 14px;
     margin: 8px;
     text-align: center;
@@ -105,14 +106,23 @@
     margin: 2px;
     margin-top: -2px;
     text-align: center;
+    background-color: #FFE082;
     width: calc(100% - 4px);
+}
+
+.amazon .flag_holder {
+    display: block;
+    margin: 8px;
+    margin-top: -8px;
+    text-align: center;
     background-color: #FFE082;
 }
 
-.flag img {
+.flag_holder .flag img {
     height: 16px;
     display: inline;
     vertical-align: top;
+    width: initial;
 }
 
 .rating {
