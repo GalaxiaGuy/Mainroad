@@ -52,26 +52,25 @@
 
 .amazon {
     display: inline-block;
-    width: 160px;
 }
 
 .amazon {
     margin: auto;
+    text-align: center;
     vertical-align: top;
 }
 
 .amazon a img {
-    width: 144px;
-    margin: 0 8px;
+    height: 220px;
 }
 
 .review a.btn, .amazon a.btn {
     display: inline-block;
     font-size: 12px;
-    margin: 8px;
     text-transform: uppercase;
     color: black;
-    width: 144px;
+    margin-bottom: 2px;
+    width: 100%;
     text-align: center;
     background-color: #FFE082;
 }
@@ -112,8 +111,7 @@
 
 .amazon .flag_holder {
     display: block;
-    margin: 8px;
-    margin-top: -8px;
+    margin-top: -2px;
     text-align: center;
     background-color: #FFE082;
 }
