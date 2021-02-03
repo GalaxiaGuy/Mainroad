@@ -1,0 +1,7 @@
+{{ $src := $.Page.Resources.GetMatch (.Get "src")}}
+{{ $alt := $.Page.Resources.GetMatch (.Get "alt")}}
+{{ $title := $.Page.Resources.GetMatch (.Get "title")}}
+<figure style="width: 100%">
+	<img src="{{ $src.RelPermalink }}" alt="{{ $alt }}" style="width: 100%; max-width: 100%" />
+	<figcaption>{{ $title }}</figcaption>
+</figure>
