@@ -35,7 +35,7 @@
 }
 
 .widget-series ol {
-    padding-left: 16px;
+    padding-left: 24px;
 }
 
 .widget-series ol li {
@@ -187,7 +187,7 @@ blockquote {
 }
 
 .post__content .gallery figure {
-    float: none;    
+    float: none;
 }
 
 .gallery img {
