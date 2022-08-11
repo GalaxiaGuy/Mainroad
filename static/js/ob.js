@@ -1,3 +1,5 @@
+clearForInitialSearch();
+
 async function loadElement(observer, element) {
     observer.unobserve(element);
     let snippet = await httpRequest("GET", element.getAttribute('data-uri'));
@@ -27,13 +29,13 @@ async function doSearch(text) {
     if (searchInput.value.trim().toLowerCase() != text) {
         return;
     }
-    let observer = new IntersectionObserver(items => {    
+    let observer = new IntersectionObserver(items => {
         items.forEach(async item => {
             if (!item.isIntersecting) {
                 return;
             }
             loadElement(observer, item.target);
-        });    
+        });
     }, {
         rootMargin: '0px',
         threshold: 0
@@ -63,7 +65,7 @@ async function doSearch(text) {
     main.appendChild(header);
 
     let results = distinct(window.searchIndex, 'id');
-    words = text.split(" ");    
+    words = text.split(" ");
     words.forEach(word => {
         word = word.trim();
         if (word.length > 0) {
@@ -109,7 +111,7 @@ window.addEventListener('load', () => {
             doSearchWithHistory('');
         }
     });
-    checkInitialSearch();    
+    checkInitialSearch();
 });
 
 window.addEventListener('popstate', (event) => {
@@ -120,11 +122,20 @@ window.addEventListener('popstate', (event) => {
     }
 });
 
+function clearForInitialSearch() {
+    let term = getSearchTerm();
+
+    if (term) {
+		let html = document.querySelector('html');
+		html.classList.add("search");
+    }
+}
+
 function checkInitialSearch() {
     let term = getSearchTerm();
 
     if (term) {
-        forceSearch(term);
+		forceSearch(term);
         return true;
     }
     return false;
@@ -140,7 +151,7 @@ function getSearchTerm() {
     if (url.searchParams.has('q')) {
         return url.searchParams.get('q');
     }
-    return null;    
+    return null;
 }
 
 function httpRequest(method, url) {
