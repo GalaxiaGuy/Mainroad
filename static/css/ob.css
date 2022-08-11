@@ -145,6 +145,14 @@ blockquote {
     display: inline;
 }
 
+.main__searchlink {
+	float: right;
+	padding-top: 4px;
+}
+.main__searchlink a {
+	font-weight: 700;
+}
+
 @media screen and (min-width: 767px) {
     .menu__item.menu__divider {
         margin-left: auto;
