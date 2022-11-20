@@ -1,12 +1,9 @@
-{{ $api_key := .Site.Params.widgets.rss2json_api_key }}
-
-{{ range .Site.Params.external}}
-{{ $recent_num := .recent_num }}
-
-{{ $url := printf "https://api.rss2json.com/v1/api.json?rss_url=%s&api_key=%s&count=%d" (urlquery .url) $api_key .recent_num }}
-
-{{ $recent := getJSON $url }}
-
+{{- if .IsHome }}
+{{- $api_key := .Site.Params.widgets.rss2json_api_key }}
+{{- range .Site.Params.external}}
+{{- $recent_num := .recent_num }}
+{{- $url := printf "https://api.rss2json.com/v1/api.json?rss_url=%s&api_key=%s&count=%d" (urlquery .url) $api_key .recent_num }}
+{{- $recent := getJSON $url }}
 {{- if $recent }}
 <div class="widget-external widget">
 	<h4 class="widget__title"><a href="{{ $recent.feed.link }}">{{ $recent.feed.title }}</a></h4>
@@ -18,5 +15,6 @@
 		</ul>
 	</div>
 </div>
+{{- end }}
 {{- end }}
 {{- end }}
