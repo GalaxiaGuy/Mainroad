@@ -224,7 +224,7 @@ blockquote {
 }
 
 .content tr {
-	border-bottom: 1px solid #ebebeb;
+	border-bottom: 1px dotted #ebebeb;
 }
 
 @media screen and (max-width: 900px)
