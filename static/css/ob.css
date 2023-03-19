@@ -231,6 +231,20 @@ blockquote {
 	border-bottom: 3px solid #ebebeb;
 }
 
+.content dt, .content dd {
+	display: block;
+}
+
+.content dl {
+	margin-left: 0px;
+}
+
+.content dd {
+	margin-bottom: 20px;
+}
+
+
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {
