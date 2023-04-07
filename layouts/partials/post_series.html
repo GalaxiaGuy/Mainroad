@@ -1,0 +1,15 @@
+{{- if .Params.series }}
+{{- range .GetTerms "series" }}
+{{- $pages :=.Pages.ByDate }}
+{{- if gt (len $pages) 1 }}
+<div class="post__series">
+	<p>All articles in the series <span class="title">{{.Title -}}</span>:</p>
+	<ol>
+		{{ range $pages }}
+			<li><a href="{{ .Permalink}}">{{ .Params.seriesTitle | default .LinkTitle }}</a></li>
+		{{ end }}
+	</ol>
+</div>
+{{- end }}
+{{- end }}
+{{- end }}

@@ -9,6 +9,7 @@
 			{{ with partial "post_meta.html" . -}}
 			<div class="post__meta meta">{{ . }}</div>
 			{{- end }}
+			{{- partial "post_series.html" . -}}
 		</header>
 		{{- if .Params.thumbnail }}
 		<figure class="post__thumbnail">

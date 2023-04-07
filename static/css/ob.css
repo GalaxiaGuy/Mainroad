@@ -243,6 +243,37 @@ blockquote {
 	margin-bottom: 20px;
 }
 
+.post__series {
+	padding: 0 0 5px 15px;
+	margin-top: 10px;
+	border-left: 5px solid #ebebeb;
+}
+
+.post__series p {
+	margin: 0;
+	font-style: italic;
+}
+
+.post__series .title {
+	font-weight: 700;
+}
+
+.post__series li {
+	display: inline;
+	padding-right: 0.5em;
+}
+
+.post__series ol {
+	counter-reset: LIST-ITEMS 0
+}
+.post__series li:before
+{
+  content: counter( LIST-ITEMS ) ".";
+  counter-increment: LIST-ITEMS;
+  padding-right: 0.25em;
+  font-weight: bold;
+}
+
 
 
 @media screen and (max-width: 900px)
