@@ -216,11 +216,6 @@ blockquote {
 
 .content table, .content tr, .content th, .content td {
 	border: none;
-	text-align: left;
-}
-
-.content td:last-child, .content th:last-child {
-	text-align: right;
 }
 
 .content tbody tr:nth-child(even) {
