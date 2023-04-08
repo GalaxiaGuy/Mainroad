@@ -269,7 +269,25 @@ blockquote {
   font-weight: bold;
 }
 
+details {
+	margin-bottom: 1.25rem;
+}
 
+details[open] > summary {
+	margin-bottom: 1.25rem;
+}
+
+summary {
+	font-weight: 700;
+}
+
+summary:hover {
+	text-decoration: underline;
+}
+
+p + details {
+	margin-top: -1rem;
+}
 
 @media screen and (max-width: 900px)
 {
