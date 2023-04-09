@@ -294,7 +294,7 @@ table.sortable th {
 }
 
 table.sortable th:before {
-    content: '\25ba';
+    content: '\25b8';
     margin-right: 5px;
 	transition: 0.25s linear;
 	display: inline-block;
