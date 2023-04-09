@@ -289,6 +289,25 @@ p + details {
 	margin-top: -1rem;
 }
 
+table.sortable th {
+	cursor: pointer
+}
+
+table.sortable th:before {
+    content: '\25ba';
+    margin-right: 5px;
+	transition: 0.25s linear;
+	display: inline-block;
+}
+
+table.sortable th.dir-u:before {
+    transform: rotate(-90deg);
+}
+
+table.sortable th.dir-d:before {
+    transform: rotate(90deg);
+}
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {
