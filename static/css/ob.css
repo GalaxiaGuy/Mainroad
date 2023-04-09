@@ -290,7 +290,8 @@ p + details {
 }
 
 table.sortable th {
-	cursor: pointer
+	cursor: pointer;
+	white-space: nowrap;
 }
 
 table.sortable th:before {
