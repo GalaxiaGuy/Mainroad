@@ -12,7 +12,7 @@
 	{{- if and (eq $paginator.TotalNumberOfElements 0) (not $.Content) }}
 		<div class="warning">
 			{{ partial "svg/files.svg" (dict "class" "warning__icon") }}
-			<h3 class="warning__headline">{{ T "noposts_warning_title" | safeHTML }}</h3>
+			<h1 class="warning__headline">{{ T "noposts_warning_title" | safeHTML }}</h3>
 			<div class="warning__text">
 				<p class="warning__description">{{ T "noposts_warning_description" | safeHTML }}</p>
 				<p class="warning__tip">{{ T "noposts_warning_tip" | safeHTML }}</p>
