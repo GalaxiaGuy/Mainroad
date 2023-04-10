@@ -309,6 +309,21 @@ table.sortable th.dir-d:before {
     transform: rotate(90deg);
 }
 
+.content h1 {
+	font-size: 20px;
+	font-size: 1.25rem;
+}
+
+.content h2 {
+	font-size: 18px;
+	font-size: 1.125rem;
+}
+
+.content h3, .content h4, .content h5, .content h6 {
+	font-size: 16px;
+	font-size: 1rem;
+}
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {
