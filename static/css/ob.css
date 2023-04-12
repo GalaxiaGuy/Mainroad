@@ -299,6 +299,7 @@ table.sortable th:before {
     margin-right: 5px;
 	transition: 0.25s linear;
 	display: inline-block;
+	margin-left: -12.5px;
 }
 
 table.sortable th.dir-u:before {
