@@ -274,6 +274,10 @@ blockquote {
 }
 
 details {
+	margin-bottom: .5rem;
+}
+
+details[open] {
 	margin-bottom: 1.25rem;
 }
 
