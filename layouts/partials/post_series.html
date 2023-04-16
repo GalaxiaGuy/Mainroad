@@ -3,7 +3,7 @@
 {{- $pages :=.Pages.ByDate }}
 {{- if gt (len $pages) 1 }}
 <div class="post__series">
-	<p>All articles in the series <span class="title">{{.Title -}}</span>:</p>
+	<p>All articles in the series <a href="{{ .Permalink}}">{{.Title -}}</a>:</p>
 	<ol>
 		{{ range $pages }}
 			<li><a href="{{ .Permalink}}">{{ .Params.seriesTitle | default .LinkTitle }}</a></li>

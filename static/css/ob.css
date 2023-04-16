@@ -273,6 +273,14 @@ blockquote {
   font-weight: bold;
 }
 
+.post__series a {
+    font-weight: 700;
+}
+
+.post__series a:hover {
+	text-decoration: underline;
+}
+
 details {
 	margin-bottom: .5rem;
 }
