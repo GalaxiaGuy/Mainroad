@@ -341,6 +341,29 @@ table.sortable th.dir-d::before {
 	font-size: 1rem;
 }
 
+mjx-container {
+    margin: 1.25rem;
+}
+
+mjx-container + br {
+	display: none;
+}
+
+mjx-container {
+	display: block;
+}
+
+mjx-container::after {
+	display: block;
+	height: 0;
+	padding: 0;
+	margin: 0;
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+	content: "";
+}
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {

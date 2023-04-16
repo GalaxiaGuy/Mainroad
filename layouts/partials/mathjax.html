@@ -1,3 +1,12 @@
-{{ if and .IsPage (eq (.Param "mathjax") true) }}
-<script src="{{ .Param "mathjaxPath" | default "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" }}{{ with .Param "mathjaxConfig" | default "TeX-AMS-MML_HTMLorMML" }}?config={{ . }}{{ end }}" async></script>
+{{ if eq (.Param "mathjax") true }}
+<script>
+	MathJax = {
+		chtml: {
+		    scale: 1.5,                      // global scaling factor for all expressions
+    		minScale: 0.75,                  // smallest scaling factor to use
+  		}
+	};
+	</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 {{ end }}
