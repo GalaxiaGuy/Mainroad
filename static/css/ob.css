@@ -259,12 +259,14 @@ blockquote {
 
 .post__series li {
 	display: inline;
-	padding-right: 0.5em;
+	padding-right: 0.75em;
+	white-space: nowrap;
 }
 
 .post__series ol {
 	counter-reset: LIST-ITEMS 0
 }
+
 .post__series li:before
 {
   content: counter( LIST-ITEMS ) ".";
@@ -381,5 +383,11 @@ mjx-container::after {
 
 	table.sortable th::before {
 		margin-left: 0;
+	}
+
+	.post__series li {
+		display: inline;
+		padding-right: 0.75em;
+		white-space: normal;
 	}
 }
