@@ -5,7 +5,7 @@
 
 .post__content figure {
     float: right;
-    margin: 8px;
+    margin: 0 0 8px 8px;
 }
 
 .post__content figcaption h4 {
@@ -389,5 +389,9 @@ mjx-container::after {
 		display: inline;
 		padding-right: 0.75em;
 		white-space: normal;
+	}
+
+	.post__content figure img {
+		max-width: 200px;
 	}
 }

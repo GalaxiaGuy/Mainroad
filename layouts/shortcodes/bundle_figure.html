@@ -1,8 +1,9 @@
 {{ $src := $.Page.Resources.GetMatch (.Get "src") }}
 {{ $alt := .Get "alt" }}
 {{ $title := .Get "title" }}
+{{ $backgroundColor := default "transparent" (.Get "backgroundColor") }}
 
 <figure>
-	<img src="{{ $src.RelPermalink }}" alt="{{ $alt }}" />
+	<img src="{{ $src.RelPermalink }}" alt="{{ $alt }}" style="background-color: {{ $backgroundColor }}" />
 	<figcaption>{{ $title }}</figcaption>
 </figure>
