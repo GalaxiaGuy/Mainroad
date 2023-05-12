@@ -69,4 +69,10 @@
         {{ end }}
     </aside>
 {{ partial "amazon_review_json.html" . }}
+
+{{ else if isset .Params "amazon" }}
+<div class="post__warning clearfix" style="margin-bottom: 16px;">
+	As an Amazon Associate I earn from qualifying purchases.
+	<a href="/privacy-policy">See here for more information</a>.
+</div>
 {{ end }}
