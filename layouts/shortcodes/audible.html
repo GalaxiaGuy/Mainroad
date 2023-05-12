@@ -1,0 +1,7 @@
+{{$us := .Get "us" | default (.Get 0) -}}
+{{$uk := .Get "uk" | default (.Get 1) -}}
+
+<span style=" white-space: nowrap;">
+	<a href="{{ $us }}" class="flag" target="_blank"><img src="/img/us.svg" style="height: 18px" /></a>
+	<a href="{{ $uk }}" class="flag" target="_blank"><img src="/img/gb.svg" style="height: 18px" /></a>
+</span>
