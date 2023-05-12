@@ -16,6 +16,10 @@
     color: white;
 }
 
+.post__warning a:hover {
+    text-decoration: underline;
+}
+
 .infobox__content + .post__warning {
     text-align: right;
 }
