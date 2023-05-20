@@ -15,9 +15,9 @@
     </div>
     {{ end }}
 
-    <div class="post__warning clearfix" style="margin-bottom: 16px;">
+    <div class="amazon__warning clearfix" style="margin-bottom: 16px;">
         As an Amazon Associate I earn from qualifying purchases.
-        <a href="/privacy-policy">See here for more information</a>.
+        <a href="/privacy-policy#amazon">See here for more information</a>.
     </div>
 
     <aside class="review">
@@ -71,8 +71,8 @@
 {{ partial "amazon_review_json.html" . }}
 
 {{ else if isset .Params "amazon" }}
-<div class="post__warning clearfix" style="margin-bottom: 16px;">
+<div class="amazon__warning clearfix" style="margin-bottom: 16px;">
 	As an Amazon Associate I earn from qualifying purchases.
-	<a href="/privacy-policy">See here for more information</a>.
+	<a href="/privacy-policy#amazon">See here for more information</a>.
 </div>
 {{ end }}
