@@ -21,7 +21,7 @@
     </div>
 
     <aside class="review">
-        <a target="_blank"  href="https://www.amazon.com/dp/{{ .Params.review.primary_asin }}/ref=nosim?tag=galaxia037-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .Params.review.primary_asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=galaxia037-20" ></a>
+        <a target="_blank" href="https://www.amazon.com/dp/{{ .Params.review.primary_asin }}/ref=nosim?tag=galaxia037-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .Params.review.primary_asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=galaxia037-20" ></a>
         <p class="rating">
                 {{ $hollow := sub 5 .Params.review.rating}}
                 {{ range seq .Params.review.rating }}★{{ end }}<span class="empty">{{ range seq $hollow }}☆{{ end }}</span>
@@ -69,6 +69,19 @@
         {{ end }}
     </aside>
 {{ partial "amazon_review_json.html" . }}
+
+{{ else if isset .Params "amazon_url" }}
+
+<div class="amazon__warning clearfix" style="margin-bottom: 16px;">
+	As an Amazon Associate I earn from qualifying purchases.
+	<a href="/privacy-policy#amazon">See here for more information</a>.
+</div>
+<aside class="review">
+	<a href="{{ .Params.amazon_url }}" target="_blank">
+		<img border="0" src="{{ .Params.amazon_image_source }}" />
+	</a>
+
+</aside>
 
 {{ else if isset .Params "amazon" }}
 <div class="amazon__warning clearfix" style="margin-bottom: 16px;">
