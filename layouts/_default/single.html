@@ -6,6 +6,7 @@
 			{{- with .Params.lead }}
 			<p class="post__lead">{{ . }}</p>
 			{{- end }}
+			{{- partial "warning.html" . -}}
 			{{ with partial "post_meta.html" . -}}
 			<div class="post__meta meta">{{ . }}</div>
 			{{- end }}

@@ -1,0 +1,5 @@
+{{- if .Params.warning }}
+<div class="post__warning clearfix" style="margin-top: 0.5rem">
+	{{- .Params.warning | safeHTML }}
+</div>
+{{- end }}
