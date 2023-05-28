@@ -1,0 +1,73 @@
+
+{{ if .IsHome}}
+{{ $p := slice "Books" }}
+{{ range where .Site.RegularPages "Params.review" "!=" nil | after 2 | first 1 }}
+
+{{ $permalink := .Permalink }}
+{{- with .Params.review }}
+<div class="widget-amazon widget">
+	<h4 class="widget__title">{{.name}}</h4>
+
+	<div style="display: inline-block; text-align: center">
+		<a target="_blank" href="https://www.amazon.com/dp/{{ .primary_asin }}/ref=nosim?tag=oliverbrown02-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .primary_asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown02-20" ></a>
+		<p class="rating" style="display: inline-block; text-align: center; margin-left: 20px; margin-right: 20px;">
+				{{ $hollow := sub 5 .rating}}
+				{{ range seq .rating }}★{{ end }}<span class="empty">{{ range seq $hollow }}☆{{ end }}</span>
+		</p>
+	</div>
+
+<p><a href="{{$permalink}}" style="display: inline-block; text-align: center; font-weight: 700">Full review of {{.name}}</a></p>
+
+{{ with .amazon_links }}
+<div class="amazon_links">
+	<h4>Buy it on Amazon</h4>
+	{{ range . }}
+	{{ if isset . "url"}}
+	<a class="btn" target="_blank" href="{{ .url }}">{{ .title }}</a>
+	{{ else }}
+	<a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20">{{ .title }}</a>
+	{{ if isset . "gb_asin" }}
+	<div class="flag_holder">
+			<a class="flag" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
+			<a class="flag" target="_blank" href="https://www.amazon.co.uk/dp/{{ .gb_asin }}/ref=nosim?tag=galaxia03-21"><img src="/img/gb.svg" /></a>
+	</div>
+	{{ end}}
+	{{ end }}
+	{{ end }}
+</div>
+{{ end }}
+{{ with .audible_links }}
+<div class="audible_links">
+	<h4>Buy it on Audible</h4>
+	<a class="btn" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ (index . 0).asin }}?ref=tmm_aud_title&tag=oliverbrown02-20">Free 30-day trial</a>
+	<div class="flag_holder">
+		<a class="flag" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ (index . 0).asin }}?ref=tmm_aud_title&tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
+		<a class="flag" target="_blank" href="https://www.amazon.co.uk/Audible-Membership/dp/B00OPA2XFG?actionCode=AMN30DFT1Bk06604291990WX&tag=galaxia03-21"><img src="/img/gb.svg" /></a>
+	</div>
+{{ range . }}
+	{{ if isset . "url"}}
+	<a class="btn" target="_blank" href="{{ .url }}">{{ .title }}</a>
+	{{ else }}
+	<a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20">{{ .title }}</a>
+	{{ if isset . "gb_asin" }}
+	<div class="flag_holder">
+			<a class="flag" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
+			<a class="flag" target="_blank" href="https://www.amazon.co.uk/dp/{{ .gb_asin }}/ref=nosim?tag=galaxia03-21"><img src="/img/gb.svg" /></a>
+	</div>
+	{{ end}}
+	{{ end }}
+	{{ end }}
+</div>
+
+{{ end }}
+
+</div>
+
+<div class="amazon__warning clearfix" style="margin-bottom: 16px;">
+	As an Amazon Associate I earn from qualifying purchases.
+	<a href="/privacy-policy#amazon">See here for more information</a>.
+</div>
+
+{{- end }}
+{{- end }}
+{{- end }}
