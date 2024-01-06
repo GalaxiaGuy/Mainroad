@@ -8,6 +8,10 @@
     margin: 0 0 8px 8px;
 }
 
+.post__content figure figcaption {
+    max-width: 300px;
+}
+
 .post__content figcaption h4 {
     text-align: right;
 }
