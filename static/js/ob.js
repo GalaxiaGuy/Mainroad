@@ -81,7 +81,7 @@ async function doSearch(text) {
     }
     results.forEach(async result => {
         let wrapper = document.createElement('div');
-        wrapper.setAttribute('data-uri', result.uri + 'searchresult.html');
+        wrapper.setAttribute('data-uri', new URL(result.uri).pathname + 'searchresult.html');
         wrapper.setAttribute('data-search', text);
         wrapper.classList.add('search__result');
         main.appendChild(wrapper);
