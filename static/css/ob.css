@@ -6,10 +6,12 @@
 .post__content figure {
     float: right;
     margin: 0 0 8px 8px;
+	display: table;
 }
 
 .post__content figure figcaption {
-    max-width: 300px;
+    display: table-caption;
+	caption-side: bottom;
 }
 
 .post__content figcaption h4 {
