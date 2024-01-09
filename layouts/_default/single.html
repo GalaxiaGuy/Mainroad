@@ -17,6 +17,7 @@
 			<img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
 		</figure>
 		{{- end }}
+		{{- partial "pattern.html" . -}}
 		{{- partial "amazon_review.html" . -}}
 		{{- partial "post_toc.html" . -}}
 		<div class="content post__content clearfix">

@@ -1,0 +1,34 @@
+{{ if isset .Params "pattern" }}
+<aside class="pattern">
+	{{ if isset .Params.pattern "title" }}
+	<h3>{{ .Params.pattern.title }}</h3>
+	{{ end }}
+	{{ if isset .Params.pattern "image_url" }}
+	<figure class="pattern__image">
+		<img src="{{ .Params.pattern.image_url | relURL }}" alt="{{ .Title }}" />
+		{{ if isset .Params.pattern "image_caption" }}
+		<figcaption class="pattern__caption">{{ .Params.pattern.image_caption }}</figcaption>
+		{{ end}}
+	</figure>
+	{{ end }}
+	{{ if isset .Params.pattern "ravelry_id" }}
+	<table>
+		<tr>
+	  {{ $id := .Params.pattern.ravelry_id }}
+	  {{ $store := .Params.pattern.ravelry_store | default "julia-temiseva-designs" -}}
+	  {{ if isset .Params.pattern "ravelry_name" }}
+	    <td><a href="https://www.ravelry.com/patterns/library/{{ .Params.pattern.ravelry_name }}">Available on Ravelry</a></td>
+	  {{ end }}
+	  {{ if isset .Params.pattern "ravelry_price" }}
+	  <td><strong>{{ .Params.pattern.ravelry_price }}</strong></td>
+	  {{ end }}
+	  <td style="text-align: right">
+		<a href="http://www.ravelry.com/purchase/{{ $store }}/{{ $id }}">
+		  <img src="https://i0.wp.com/www.ravelry.com/images/shopping/buy-now.gif" alt="" border="0">
+	  	</a>
+	  </td>
+	</tr>
+	</table>
+	{{ end }}
+</aside>
+{{ end }}

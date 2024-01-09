@@ -83,6 +83,28 @@
     width: 161px;
 }
 
+.pattern {
+    float: right;
+    margin-left: 16px;
+    width: 300px;
+}
+
+.pattern > * {
+	max-width: 300px;
+}
+
+.pattern table, .pattern tr, .pattern td {
+	border: 0;
+}
+
+.pattern figure {
+	margin-bottom: 0.25rem;
+}
+
+.pattern td {
+	padding: 0;
+}
+
 .amazon {
     display: inline-block;
 }
