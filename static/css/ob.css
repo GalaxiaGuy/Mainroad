@@ -449,4 +449,14 @@ mjx-container::after {
 	.post__content figure img {
 		max-width: 200px;
 	}
+
+	.pattern {
+		float: right;
+		margin-left: 16px;
+		width: 200px;
+	}
+
+	.pattern > * {
+		max-width: 200px;
+	}
 }
