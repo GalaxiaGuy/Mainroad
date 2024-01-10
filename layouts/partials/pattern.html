@@ -11,24 +11,25 @@
 		{{ end}}
 	</figure>
 	{{ end }}
-	{{ if isset .Params.pattern "ravelry_id" }}
 	<table>
-		<tr>
+	{{ if isset .Params.pattern "ravelry_id" }}
+	<tr>
 	  {{ $id := .Params.pattern.ravelry_id }}
 	  {{ $store := .Params.pattern.ravelry_store | default "julia-temiseva-designs" -}}
-	  {{ if isset .Params.pattern "ravelry_name" }}
-	    <td><a href="https://www.ravelry.com/patterns/library/{{ .Params.pattern.ravelry_name }}">Available on Ravelry</a></td>
-	  {{ end }}
-	  {{ if isset .Params.pattern "ravelry_price" }}
-	  <td><strong>{{ .Params.pattern.ravelry_price }}</strong></td>
-	  {{ end }}
+	  <td><a href="https://www.ravelry.com/patterns/library/{{ .Params.pattern.ravelry_name }}">Available on Ravelry</a></td>
+	  <td>{{ .Params.pattern.ravelry_price }}</td>
 	  <td style="text-align: right">
 		<a href="http://www.ravelry.com/purchase/{{ $store }}/{{ $id }}">
 		  <img src="https://i0.wp.com/www.ravelry.com/images/shopping/buy-now.gif" alt="" border="0">
 	  	</a>
 	  </td>
 	</tr>
-	</table>
 	{{ end }}
+	{{ if isset .Params.pattern "file_url" }}
+	<tr>
+		<td colspan="3"><a href="{{ .Params.pattern.file_url }}">Download free pattern</a></td>
+	</tr>
+	{{ end }}
+	</table>
 </aside>
 {{ end }}
