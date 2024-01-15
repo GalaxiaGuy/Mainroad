@@ -28,6 +28,9 @@
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{ end -}}
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700{{ .Site.Params.additional_fonts_string }}">
+	{{ with .Site.Params.variable_fonts_string }}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ . }}">
+	{{ end }}
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{ range .Site.Params.customCSS -}}
