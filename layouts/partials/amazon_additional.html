@@ -1,7 +1,8 @@
 {{ with .Params.review.additional_amazon_links }}
 {{ range . }}
+{{ $img_url := (index . 0).img_url }}
 <div class="amazon">
-    <a target="_blank" href="https://www.amazon.com/dp/{{ (index . 0).asin }}/ref=nosim?tag=oliverbrown02-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ (index . 0).asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown02-20" ></a>
+    <a target="_blank" href="https://www.amazon.com/dp/{{ (index . 0).asin }}/ref=nosim?tag=oliverbrown02-20"><img border="0" src="{{ $img_url }}" ></a>
     <h4>Buy it on Amazon</h4>
     {{ range . }}
     <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20">{{ .title }}</a>
