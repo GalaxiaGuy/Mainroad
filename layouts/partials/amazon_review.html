@@ -21,7 +21,9 @@
     </div>
 
     <aside class="review">
-        <a target="_blank" href="https://www.amazon.com/dp/{{ .Params.review.primary_asin }}/ref=nosim?tag=oliverbrown02-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .Params.review.primary_asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown02-20" ></a>
+		{{$img_url := .Params.review.img_url | default "//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .primary_asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown02-20"}}
+
+        <a target="_blank" href="https://www.amazon.com/dp/{{ .Params.review.primary_asin }}/ref=nosim?tag=oliverbrown02-20"><img border="0" src="{{ $img_url }}" ></a>
         <p class="rating">
                 {{ $hollow := sub 5 .Params.review.rating}}
                 {{ range seq .Params.review.rating }}★{{ end }}<span class="empty">{{ range seq $hollow }}☆{{ end }}</span>
