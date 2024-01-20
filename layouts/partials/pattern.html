@@ -5,7 +5,7 @@
 	{{ end }}
 	{{ if isset .Params.pattern "image_url" }}
 	<figure class="pattern__image">
-		<img src="{{ .Params.pattern.image_url | relURL }}" alt="{{ .Title }}" />
+		<img src="{{ .Params.pattern.image_url | relURL }}" alt="{{ .Params.pattern.title }}" />
 		{{ if isset .Params.pattern "image_caption" }}
 		<figcaption class="pattern__caption">{{ .Params.pattern.image_caption }}</figcaption>
 		{{ end}}
