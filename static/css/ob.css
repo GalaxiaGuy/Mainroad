@@ -422,6 +422,38 @@ mjx-container::after {
 	content: "";
 }
 
+.wayback ol {
+	counter-reset: LIST-ITEMS 0;
+}
+
+.wayback li {
+	display: inline;
+	padding-right: 0.75em;
+	white-space: nowrap;
+}
+
+.wayback li a {
+	font-weight: 700;
+}
+
+.wayback li:before
+{
+  content: counter( LIST-ITEMS ) ".";
+  counter-increment: LIST-ITEMS;
+  padding-right: 0.25em;
+  font-weight: bold;
+}
+
+.wayback {
+	padding: 0 0 5px 15px;
+	margin-top: 10px;
+	border-left: 5px solid #ebebeb;
+}
+
+.wayback details {
+	margin-bottom: 0;
+}
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {
@@ -442,6 +474,12 @@ mjx-container::after {
 	}
 
 	.post__series li {
+		display: inline;
+		padding-right: 0.75em;
+		white-space: normal;
+	}
+
+	.wayback li {
 		display: inline;
 		padding-right: 0.75em;
 		white-space: normal;
