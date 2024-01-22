@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (url.host.indexOf('localhost') != -1) {
 				continue;
 			}
-			if (url.host == window.location.href.host) {
+			if (url.host == window.location.host) {
 				continue;
 			}
 			if (links[i].textContent.trim() == '') {
