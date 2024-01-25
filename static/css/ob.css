@@ -436,7 +436,7 @@ mjx-container::after {
 	white-space: nowrap;
 }
 
-.wayback li a {
+.wayback a {
 	font-weight: 700;
 }
 
@@ -452,6 +452,10 @@ mjx-container::after {
 	padding: 0 0 5px 15px;
 	margin-top: 10px;
 	border-left: 5px solid #ebebeb;
+}
+
+.wayback p {
+	margin-bottom: 0.5rem;
 }
 
 .wayback details {

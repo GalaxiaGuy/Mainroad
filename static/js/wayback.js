@@ -13,16 +13,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	for (let i = 0; i < articles.length; i++) {
 		let article = articles[i];
 		let wayback = article.querySelectorAll('.wayback')[0];
+		let waybackExternal = wayback.querySelectorAll('.external')
 		let links = article.querySelectorAll('article .post__content a');
-
-		if (links.length == 0) {
-			wayback.remove();
-			break;
-		}
+		let waybackThis = wayback.querySelectorAll('.waybackThis')[0];
 
 		let time = article.querySelectorAll('time')[0];
 		let waybackTime = new Date(time.dateTime)
 		let waybackList = wayback.querySelectorAll('ol')[0];
+
+
+		waybackThis.href = 'https://web.archive.org/web/' + waybackTime.yyyymmdd() + '/' + links[i].href;
+
+		if (links.length == 0) {
+			waybackExternal.forEach((e) => e.remove());
+			break;
+		}
+
 
 		var added = false;
 
@@ -49,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			added = true;
 		}
 		if (!added) {
-			wayback.remove();
+			waybackExternal.forEach((e) => e.remove());
 			break;
 		}
 
