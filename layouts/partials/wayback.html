@@ -1,7 +1,9 @@
+{{ $t := .Date.Format "20060102" }}
+
 <div class="wayback">
 	<details>
 		<summary>See Wayback Machine links</summary>
-		<p>See an archive of <a href="" class="waybackThis">this post</a> on the <a href="https://archive.org/web/" target="_blank">Wayback Machine</a>.</p>
+		<p>See an archive of <a href="https://web.archive.org/web/{{ $t }}/{{ .Permalink }}">this post</a> on the <a href="https://archive.org/web/" target="_blank">Wayback Machine</a>.</p>
 		<p class="external">See archives of the external links:</p>
 		<ol class="external"></ol>
 	</details>
