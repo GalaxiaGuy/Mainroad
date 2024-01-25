@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		let waybackList = wayback.querySelectorAll('ol')[0];
 
 
-		waybackThis.href = 'https://web.archive.org/web/' + waybackTime.yyyymmdd() + '/' + links[i].href;
+		waybackThis.href = 'https://web.archive.org/web/' + waybackTime.yyyymmdd() + '/' + window.location;
 
 		if (links.length == 0) {
 			waybackExternal.forEach((e) => e.remove());
