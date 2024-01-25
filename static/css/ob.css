@@ -422,6 +422,10 @@ mjx-container::after {
 	content: "";
 }
 
+.wayback summary {
+	cursor: pointer;
+}
+
 .wayback ol {
 	counter-reset: LIST-ITEMS 0;
 }
