@@ -2,7 +2,7 @@
 <main class="main list" role="main">
 	{{- with .Title }}
 	<header class="main__header">
-		<div class="main__searchlink">Search for <a href="{{ "search/" | relLangURL }}{{ . | urlize }}">{{.}}</div>
+		<div class="main__searchlink">Search for <a href="{{ "search/" | relLangURL }}{{ . | urlize }}">{{.}}</a></div>
 		<h1 class="main__title">{{ . }}</h1>
 	</header>
 	{{- end }}
