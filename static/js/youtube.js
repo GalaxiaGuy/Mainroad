@@ -18,12 +18,11 @@ function addYoutubeListeners() {
 	for (let i = 0; i < youtube.length; i++) {
 		let link = youtube[i].querySelectorAll('.thumbnail')[0];
 		let iframe = youtube[i].querySelectorAll('iframe')[0];
-		if (!iframe.hasAttribute('data-src')) {
+		if (iframe.hasAttribute('src')) {
 			continue;
 		}
 		link.addEventListener('click', function(e) {
 			iframe.setAttribute('src', iframe.getAttribute('data-src'));
-			iframe.removeAttribute('data-src');
 			iframe.style.display = 'block';
 			e.preventDefault();
 		});
