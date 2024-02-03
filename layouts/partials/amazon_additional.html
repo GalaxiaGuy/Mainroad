@@ -20,7 +20,6 @@
 {{ with .Params.review.additional_audible_links }}
 {{ range . }}
 <div class="audible">
-    <a target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ .asin }}?ref=tmm_aud_title&tag=oliverbrown02-20"><img border="0" src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&MarketPlace=US&ASIN={{ .asin }}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL250_&tag=oliverbrown02-20" ></a>
     <h4>Buy it on Amazon</h4>
     <a class="btn" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ .asin }}?ref=tmm_aud_title&tag=oliverbrown02-20">Free 30-day trial</a>
     {{ if isset . "gb_asin" }}
