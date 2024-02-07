@@ -36,12 +36,6 @@
             <a class="btn" target="_blank" href="{{ .url }}">{{ .title }}</a>
             {{ else }}
             <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20">{{ .title }}</a>
-            {{ if isset . "gb_asin" }}
-            <div class="flag_holder">
-                    <a class="flag" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
-                    <a class="flag" target="_blank" href="https://www.amazon.co.uk/dp/{{ .gb_asin }}/ref=nosim?tag=galaxia03-21"><img src="/img/gb.svg" /></a>
-            </div>
-            {{ end}}
             {{ end }}
             {{ end }}
         </div>
@@ -50,21 +44,11 @@
         <div class="audible_links">
             <h4>Buy it on Audible</h4>
             <a class="btn" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ (index . 0).asin }}?ref=tmm_aud_title&tag=oliverbrown02-20">Free 30-day trial</a>
-            <div class="flag_holder">
-                <a class="flag" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ (index . 0).asin }}?ref=tmm_aud_title&tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
-                <a class="flag" target="_blank" href="https://www.amazon.co.uk/Audible-Membership/dp/B00OPA2XFG?actionCode=AMN30DFT1Bk06604291990WX&tag=galaxia03-21"><img src="/img/gb.svg" /></a>
-            </div>
         {{ range . }}
             {{ if isset . "url"}}
             <a class="btn" target="_blank" href="{{ .url }}">{{ .title }}</a>
             {{ else }}
             <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20">{{ .title }}</a>
-            {{ if isset . "gb_asin" }}
-            <div class="flag_holder">
-                    <a class="flag" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
-                    <a class="flag" target="_blank" href="https://www.amazon.co.uk/dp/{{ .gb_asin }}/ref=nosim?tag=galaxia03-21"><img src="/img/gb.svg" /></a>
-            </div>
-            {{ end}}
             {{ end }}
             {{ end }}
         </div>

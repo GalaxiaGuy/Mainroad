@@ -3,16 +3,12 @@
 {{ $img_url := (index . 0).img_url }}
 <div class="amazon">
     <a target="_blank" href="https://www.amazon.com/dp/{{ (index . 0).asin }}/ref=nosim?tag=oliverbrown02-20"><img border="0" src="{{ $img_url }}" ></a>
+	<div class="amazon_links">
     <h4>Buy it on Amazon</h4>
     {{ range . }}
     <a class="btn" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20">{{ .title }}</a>
-    {{ if isset . "gb_asin" }}
-    <div class="flag_holder">
-        <a class="flag" target="_blank" href="https://www.amazon.com/dp/{{ .asin }}/ref=nosim?tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
-        <a class="flag" target="_blank" href="https://www.amazon.co.uk/dp/{{ .gb_asin }}/ref=nosim?tag=galaxia03-21"><img src="/img/gb.svg" /></a>
-    </div>
     {{ end }}
-    {{ end }}
+	</div>
 </div>
 {{ end }}
 {{ end }}
@@ -22,12 +18,6 @@
 <div class="audible">
     <h4>Buy it on Amazon</h4>
     <a class="btn" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ .asin }}?ref=tmm_aud_title&tag=oliverbrown02-20">Free 30-day trial</a>
-    {{ if isset . "gb_asin" }}
-    <div class="flag_holder">
-        <a class="flag" target="_blank" href="https://www.amazon.com/hz/audible/mlp/mfpdp/{{ .asin }}?ref=tmm_aud_title&tag=oliverbrown02-20"><img src="/img/us.svg" /></a>
-        <a class="flag" target="_blank" href="https://www.amazon.co.uk/dp/{{ .gb_asin }}/ref=nosim?tag=galaxia03-21"><img src="/img/gb.svg" /></a>
-    </div>
-    {{ end}}
 </div>
 {{ end }}
 {{ end }}
