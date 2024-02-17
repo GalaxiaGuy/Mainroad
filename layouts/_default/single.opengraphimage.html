@@ -20,12 +20,13 @@
 
 			.cover__title {
 				position: absolute;
-				top: 16px;
+				top: 32px;
 				left: 32px;
 				font-size: 96px;
 				font-weight: 700;
 				color: black;
 				max-width: 700px;
+				line-height: 1.1;
 			}
 
 			.cover__site {
@@ -66,9 +67,17 @@
 			{{ $image_url := .Params.opengraph_image | default .Params.pattern.image_url -}}
 			{{ if $image_url }}
 			<img class="cover__image" src="{{ $image_url }}" />
+			{{ if (lt (.Title | len) 20) }}
+			<div class="cover__title" style="font-size: 128px;">{{ .Title }}</div>
+			{{ else }}
 			<div class="cover__title">{{ .Title }}</div>
+			{{ end }}
+			{{ else }}
+			{{ if (lt (.Title | len) 25) }}
+			<div class="cover__title" style="max-width: 1136px, font-size: 128px;">{{ .Title }}</div>
 			{{ else }}
 			<div class="cover__title" style="max-width: 1136px">{{ .Title }}</div>
+			{{ end }}
 			{{ end }}
 			<div class="cover__site">{{ .Site.Title }}</div>
 			<div class="cover__line"> </div>
