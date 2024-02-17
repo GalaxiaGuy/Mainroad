@@ -65,7 +65,7 @@
 	</head>
 	<body>
 		<div class="cover">
-			{{ $image_url := .Params.opengraph_image | default .Params.pattern.image_url -}}
+			{{ $image_url := .Params.opengraph_image | default .Params.review.img_url | default .Params.pattern.image_url -}}
 			{{ if $image_url }}
 				<img class="cover__image" src="{{ $image_url }}" />
 				{{ if (lt (.Title | len) 20) }}
