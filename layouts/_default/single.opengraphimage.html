@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta name="robots" content="noindex">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700{{ .Site.Params.additional_fonts_string }}">
+		{{ with .Site.Params.variable_fonts_string }}
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ . }}">
+		{{ end }}
+		{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
+		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+		{{ range .Site.Params.customCSS -}}
+		<link rel="stylesheet" href="{{ . | relURL }}">
+		{{- end }}
+		<style>
+			.cover {
+				position: relative;
+				width: 1200px;
+				height: 627px;
+				background-color: white;
+			}
+
+			.cover__title {
+				position: absolute;
+				top: 16px;
+				left: 32px;
+				font-size: 96px;
+				font-weight: 700;
+				color: black;
+				max-width: 700px;
+			}
+
+			.cover__site {
+				position: absolute;
+				bottom: 16px;
+				left: 0;
+				right: 0;
+				height: 96px;
+				font-size: 36px;
+				font-weight: 700;
+				background-color: black;
+				color: white;
+				padding-left: 32px;
+				padding-top: 20px;
+			}
+
+			.cover__line {
+				position: absolute;
+				height: 16px;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+
+			.cover__image {
+				display: block;
+				position: absolute;
+				top: 32px;
+				right: 32px;
+				height: 451px;
+				max-width: 451px;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cover">
+			{{ $image_url := .Params.opengraph_image | default .Params.pattern.image_url -}}
+			{{ if $image_url }}
+			<img class="cover__image" src="{{ $image_url }}" />
+			<div class="cover__title">{{ .Title }}</div>
+			{{ else }}
+			<div class="cover__title" style="max-width: 1136px">{{ .Title }}</div>
+			{{ end }}
+			<div class="cover__site">{{ .Site.Title }}</div>
+			<div class="cover__line"> </div>
+		</div>
+	</body>
+</html>
