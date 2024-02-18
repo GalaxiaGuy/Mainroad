@@ -20,9 +20,20 @@
 
 			.cover__title {
 				position: absolute;
-				top: 32px;
-				left: 32px;
+				top: 48px;
+				left: 48px;
 				font-size: 96px;
+				font-weight: 700;
+				color: black;
+				max-width: 700px;
+				line-height: 1.1;
+			}
+
+			.cover__review {
+				position: absolute;
+				bottom: 160px;
+				left: 48px;
+				font-size: 64px;
 				font-weight: 700;
 				color: black;
 				max-width: 700px;
@@ -40,7 +51,7 @@
 				background-color: black;
 				color: white;
 				text-align: right;
-				padding-right: 32px;
+				padding-right: 48px;
 				padding-top: 8px;
 			}
 
@@ -55,10 +66,10 @@
 			.cover__image {
 				display: block;
 				position: absolute;
-				top: 32px;
-				right: 32px;
-				height: 451px;
-				max-width: 451px;
+				top: 48px;
+				right: 48px;
+				height: 419px;
+				max-width: 400px;
 				object-fit: cover;
 			}
 		</style>
@@ -70,6 +81,8 @@
 				<img class="cover__image" src="{{ $image_url }}" />
 				{{ if (lt (.Title | len) 20) }}
 				<div class="cover__title" style="font-size: 128px;">{{ .Title }}</div>
+				{{ else if (gt (.Title | len) 40) }}
+				<div class="cover__title" style="font-size: 72px;">{{ .Title }}</div>
 				{{ else }}
 				<div class="cover__title">{{ .Title }}</div>
 				{{ end }}
@@ -80,7 +93,12 @@
 				<div class="cover__title" style="max-width: 1136px">{{ .Title }}</div>
 				{{ end }}
 			{{ end }}
-
+			{{ if isset .Params "review" }}
+				<div class="cover__review">
+					{{ $hollow := sub 5 .Params.review.rating}}
+					{{ range seq .Params.review.rating }}★ {{ end }}<span class="empty">{{ range seq $hollow }}☆ {{ end }}</span>
+				</div>
+			{{ end }}
 
 			<div class="cover__site">{{ .Site.Params.opengraph_title }}</div>
 			<div class="cover__line"> </div>
