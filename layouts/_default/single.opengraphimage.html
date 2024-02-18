@@ -26,7 +26,7 @@
 				font-weight: 700;
 				color: black;
 				max-width: 700px;
-				line-height: 1.05;
+				line-height: 1.2;
 			}
 
 			.cover__review {
@@ -38,6 +38,10 @@
 				color: black;
 				max-width: 700px;
 				line-height: 1.1;
+			}
+
+			.cover__title:has(+ .cover__review) {
+				line-height: 1.05;
 			}
 
 			.cover__site {
