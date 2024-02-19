@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<meta name="robots" content="noindex">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700{{ .Site.Params.additional_fonts_string }}">
+		{{ with .Site.Params.variable_fonts_string }}
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ . }}">
+		{{ end }}
+		{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
+		<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+		{{ range .Site.Params.customCSS -}}
+		<link rel="stylesheet" href="{{ . | relURL }}">
+		{{- end }}
+		<style>
+			.cover {
+				position: relative;
+				width: 1200px;
+				height: 627px;
+				background-color: white;
+			}
+
+			.cover__title {
+				position: absolute;
+				top: 48px;
+				left: 48px;
+				font-size: 92px;
+				font-weight: 700;
+				color: black;
+				max-width: 700px;
+				line-height: 1.2;
+			}
+
+			.cover__review {
+				position: absolute;
+				bottom: 160px;
+				left: 48px;
+				font-size: 64px;
+				font-weight: 700;
+				color: black;
+				max-width: 700px;
+				line-height: 1.1;
+			}
+
+			.cover__title:has(+ .cover__review) {
+				line-height: 1.05;
+			}
+
+			.cover__site {
+				position: absolute;
+				bottom: 16px;
+				left: 0;
+				right: 0;
+				height: 96px;
+				font-size: 48px;
+				font-weight: 700;
+				background-color: black;
+				color: white;
+				text-align: right;
+				padding-right: 48px;
+				padding-top: 8px;
+			}
+
+			.cover__line {
+				position: absolute;
+				height: 16px;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+
+			.cover__image {
+				display: block;
+				position: absolute;
+				top: 48px;
+				right: 48px;
+				height: 419px;
+				max-width: 400px;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cover">
+			{{ $image_url := .Params.opengraph_image | default .Params.review.img_url | default .Params.pattern.image_url -}}
+			{{ if $image_url }}
+				<img class="cover__image" src="{{ $image_url }}" />
+				{{ if (lt (.Title | len) 20) }}
+				<div class="cover__title" style="font-size: 128px;">{{ .Title }}</div>
+				{{ else if (gt (.Title | len) 40) }}
+				<div class="cover__title" style="font-size: 72px;">{{ .Title }}</div>
+				{{ else }}
+				<div class="cover__title">{{ .Title }}</div>
+				{{ end }}
+			{{ else }}
+				{{ if (lt (.Title | len) 25) }}
+				<div class="cover__title" style="max-width: 1136px; font-size: 128px;">{{ .Title }}</div>
+				{{ else }}
+				<div class="cover__title" style="max-width: 1136px">{{ .Title }}</div>
+				{{ end }}
+			{{ end }}
+			{{ if isset .Params "review" }}
+				<div class="cover__review">
+					{{ $hollow := sub 5 .Params.review.rating}}
+					{{ range seq .Params.review.rating }}★ {{ end }}<span class="empty">{{ range seq $hollow }}☆ {{ end }}</span>
+				</div>
+			{{ end }}
+
+			<div class="cover__site">{{ .Site.Params.opengraph_title }}</div>
+			<div class="cover__line"> </div>
+		</div>
+	</body>
+</html>
