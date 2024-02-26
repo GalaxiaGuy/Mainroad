@@ -514,8 +514,7 @@ mjx-container::after {
 	.archive .columns {
 		column-count: 1;
     }
-{
-
+}
 
 @media screen and (max-width: 900px)
 {
@@ -560,5 +559,20 @@ mjx-container::after {
 
 	.pattern > * {
 		max-width: 200px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.post__content figure img {
+		max-width: 150px;
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.post__content figure {
+		display: block;
+	}
+	.post__content figure img {
+		max-width: 100%;
 	}
 }
