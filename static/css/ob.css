@@ -472,17 +472,35 @@ mjx-container::after {
 	margin: 0.5rem 0;
 }
 
+.archive h2 a {
+	color: white;
+}
+
+.archive h3 a:hover {
+	color: black;
+}
+
 .archive li {
 	list-style: none;
 	margin-left: 1rem;
+	display: block;
+	padding: 2px 0;
+	border-bottom: 1px dotted #ebebeb
+}
+
+.archive li:first-child {
+	padding-top: 0;
 }
 
 .archive h3 {
+	text-transform: uppercase;
+	border-bottom: 3px solid #ebebeb;
+	padding-bottom: 3px;
 	margin: 0;
 }
 
 .archive h2 {
-	background-color: black;
+	background-color: #2a2a2a;
 	color: white;
 	padding: 0.25rem 1rem;
 	margin: 1rem 0;
