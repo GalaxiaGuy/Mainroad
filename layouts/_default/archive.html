@@ -15,4 +15,10 @@
 	</div>
 	{{ end }}
 </main>
+<script>
+	let path = window.location.pathname.trim('/');
+	if (path.startsWith('2')) {
+		window.location.hash = path;
+	}
+</script>
 {{ end }}
