@@ -468,6 +468,37 @@ mjx-container::after {
 	margin-bottom: 0;
 }
 
+.archive ul {
+	margin: 0.5rem 0;
+}
+
+.archive li {
+	list-style: none;
+	margin-left: 1rem;
+}
+
+.archive h3 {
+	margin: 0;
+}
+
+.archive h2 {
+	background-color: black;
+	color: white;
+	padding: 0.25rem 1rem;
+	margin: 1rem 0;
+}
+
+.archive .columns {
+	column-count: 2;
+}
+
+@media screen and (max-width: 600px) {
+	.archive .columns {
+		column-count: 1;
+    }
+{
+
+
 @media screen and (max-width: 900px)
 {
     .search_wrapper {
