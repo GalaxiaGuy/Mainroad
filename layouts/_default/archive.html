@@ -14,6 +14,14 @@
   	{{ end }}
 	</div>
 	{{ end }}
+	<h2>Other</h2>
+	<div class="columns">
+	<ul>
+		{{ range (where .Site.RegularPages "Type" "not in" .Site.Params.mainSections)  }}
+    		<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  		{{ end }}
+	</ul>
+	</div>
 </main>
 <script>
 	let path = window.location.pathname.slice(1);
