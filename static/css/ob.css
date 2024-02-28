@@ -468,7 +468,7 @@ mjx-container::after {
 	margin-bottom: 0;
 }
 
-.archive ul {
+.archive h3+ul {
 	margin: 0.5rem 0;
 }
 
@@ -486,10 +486,6 @@ mjx-container::after {
 	display: block;
 	padding: 2px 0;
 	border-bottom: 1px dotted #ebebeb
-}
-
-.archive li:first-child {
-	padding-top: 0;
 }
 
 .archive h3 {
