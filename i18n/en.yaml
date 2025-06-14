@@ -10,7 +10,7 @@
 
 # Post meta
 - id: meta_lastmod
-  translation: "Last Modified"
+  translation: "Last modified"
 
 - id: meta_translations
   translation: "Translations"
