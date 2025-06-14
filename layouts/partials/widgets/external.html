@@ -1,20 +1,28 @@
-{{- if .IsHome }}
-{{- $api_key := .Site.Params.widgets.rss2json_api_key }}
-{{- range .Site.Params.external}}
-{{- $recent_num := .recent_num }}
-{{- $url := printf "https://api.rss2json.com/v1/api.json?rss_url=%s&api_key=%s&count=%d" (urlquery .url) $api_key .recent_num }}
-{{- $recent := getJSON $url }}
-{{- if $recent }}
-<div class="widget-external widget">
-	<h4 class="widget__title"><a href="{{ $recent.feed.link }}">{{ $recent.feed.title }}</a></h4>
-	<div class="widget__content">
-		<ul class="widget__list">
-			{{- range $recent.items }}
-			<li class="widget__item"><a class="widget__link" href="{{ .link }}">{{ .title }}</a></li>
-			{{- end }}
-		</ul>
+{{ if .IsHome }}
+{{ $api_key := .Site.Params.widgets.rss2json_api_key }}
+{{ range .Site.Params.external}}
+{{ $recent_num := .recent_num }}
+{{ $url := printf "https://api.rss2json.com/v1/api.json?rss_url=%s&api_key=%s&count=%d" (urlquery .url) $api_key .recent_num }}
+
+{{ $recent := dict }}
+{{ with try (resources.GetRemote $url) }}
+  {{ with .Err }}
+    {{ errorf "%s" . }}
+  {{ else with .Value }}
+    {{ $recent = . | transform.Unmarshal }}
+	<div class="widget-external widget">
+		<h4 class="widget__title"><a href="{{ $recent.feed.link }}">{{ $recent.feed.title }}</a></h4>
+		<div class="widget__content">
+			<ul class="widget__list">
+				{{- range $recent.items }}
+				<li class="widget__item"><a class="widget__link" href="{{ .link }}">{{ .title }}</a></li>
+				{{- end }}
+			</ul>
+		</div>
 	</div>
-</div>
-{{- end }}
-{{- end }}
-{{- end }}
+  {{ else }}
+    {{ errorf "Unable to get remote resource %q" $url }}
+  {{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

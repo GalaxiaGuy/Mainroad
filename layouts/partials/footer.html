@@ -7,6 +7,7 @@
 		{{ partial "footer_links.html" . }}
 		<div class="footer__copyright">
 			&copy; {{ .Scratch.Get "copyrightYear" }} {{ .Site.Params.copyright | default .Site.Title }}.
+			<span class="footer__copyright-credits">Any opinions are my own.</span>
 			<span class="footer__copyright-credits">{{ T "footer_credits" | safeHTML }}</span>
 			<span class="footer__copyright-credits">Uses <a href="https://github.com/tofsjonas/sortable">Sortable</a>.</span>
 		</div>
