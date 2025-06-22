@@ -67,6 +67,19 @@
     list-style: none;
 }
 
+.footnotes ol {
+    padding-left: 24px;
+	margin-left: 0;
+}
+
+hr {
+	margin-bottom: 10px
+}
+
+.footnotes ol li {
+	font-size: 0.75rem;
+}
+
 .widget-series ol {
     padding-left: 24px;
 }
