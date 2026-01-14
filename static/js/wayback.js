@@ -51,8 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
 				continue;
 			}
 
-			waybackList.innerHTML += '<li><a href="https://web.archive.org/web/' + waybackTime.yyyymmdd() + '/' + links[i].href + '" target="_blank">' + links[i].textContent + '</a></li>';
-			added = true;
+			if (url.host.indexOf('web.archive.org') != -1) {
+			    waybackList.innerHTML += '<li><a href="' + links[i].href + '" target="_blank">' + links[i].textContent + '</a></li>';
+				added = true;
+			} else {
+			    waybackList.innerHTML += '<li><a href="https://web.archive.org/web/' + waybackTime.yyyymmdd() + '/' + links[i].href + '" target="_blank">' + links[i].textContent + '</a></li>';
+				added = true;
+			}
 		}
 		if (!added) {
 			waybackExternal.forEach((e) => e.remove());
