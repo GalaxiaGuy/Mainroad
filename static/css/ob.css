@@ -67,6 +67,10 @@
     list-style: none;
 }
 
+.footnotes {
+	margin-top: 10px;	
+}
+
 .footnotes ol {
     padding-left: 24px;
 	margin-left: 0;

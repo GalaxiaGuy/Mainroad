@@ -2,7 +2,7 @@
 {{ $folder := .Get 0 }}
 {{ if $folder }}
   {{ $images := .Scratch.Get "images" }}
-  {{ $images := $images.Match $folder}}
+  {{ $images := $images.Match (printf "%s/*" $folder) }}
   {{ .Scratch.Set "images" $images }}
 {{ end}}
 {{ $images := .Scratch.Get "images" }}
