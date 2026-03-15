@@ -2,8 +2,9 @@
 {{ $alt := .Get "alt" }}
 {{ $title := .Get "title" }}
 {{ $backgroundColor := default "transparent" (.Get "backgroundColor") }}
+{{ $height := .Get "height" }}
 
 <figure>
-	<img src="{{ $src.RelPermalink }}" alt="{{ $alt }}" style="background-color: {{ $backgroundColor }}" />
+	<img src="{{ $src.RelPermalink }}" alt="{{ $alt }}" style="background-color: {{ $backgroundColor }}{{ if $height }}; height: {{ $height }}{{ end }}" />
 	<figcaption>{{ $title }}</figcaption>
 </figure>
