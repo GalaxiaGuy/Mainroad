@@ -11,8 +11,10 @@
 		{{ . }}
 	</div>
 	{{- end }}
+	{{- if not .Params.hideList }}
 	{{- range .Pages.ByDate }}
 		{{- .Render "summary" }}
+	{{- end }}
 	{{- end }}
 </main>
 {{ end }}
