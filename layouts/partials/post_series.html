@@ -3,7 +3,7 @@
 {{- $pages :=.Pages.ByDate }}
 {{- if .Params.hideList }}
 	<div class="post__series">
-		<p>This article part of the series <a href="{{ .Permalink}}">{{.Title -}}</a>.</p>
+		<p>This article is part of the series <a href="{{ .Permalink}}">{{.Title -}}</a>.</p>
 	</div>
 {{- else }}
 	{{- if gt (len $pages) 1 }}
