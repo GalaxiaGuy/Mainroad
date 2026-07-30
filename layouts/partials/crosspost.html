@@ -1,0 +1,11 @@
+{{- with .Params.crosspost }}
+{{- $message := "" }}
+{{- if eq .type "source" }}
+{{- $message = "This has also been cross-posted on" }}
+{{- else }}
+{{- $message = "This has been cross-posted from" }}
+{{- end }}
+<div class="crosspost__warning clearfix">
+	{{ $message }} <a href="{{ .url }}">{{ .title }}</a>.
+</div>
+{{- end }}

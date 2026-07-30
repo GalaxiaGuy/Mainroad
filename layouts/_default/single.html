@@ -23,6 +23,7 @@
 			{{ .Content }}
 		</div>
 		{{- partial "amazon_additional.html" . -}}
+		{{- partial "crosspost.html" . -}}
 		<footer class="post__footer">
 			{{- if .Params.tags }}
 				{{ partial "post_tags.html" . }}
