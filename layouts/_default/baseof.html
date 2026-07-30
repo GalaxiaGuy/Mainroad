@@ -34,11 +34,13 @@
 	{{- if .Site.Params.twitter_cards }}
 		{{ template "_internal/twitter_cards.html" . }}
 	{{- end }}
-	{{ if .Params.canonical_url }}
+	{{- if .Params.canonical_url }}
 	<link rel="canonical" href="{{ .Params.canonical_url }}">
-	{{ else }}
+	{{- else if and .Params.crosspost (ne .Params.crosspost.type "source") }}
+	<link rel="canonical" href="{{ .Params.crosspost.url }}">
+	{{- else }}
 	<link rel="canonical" href="{{ .Permalink }}">
-	{{ end }}
+	{{- end }}
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	{{ with .OutputFormats.Get "rss" -}}
